@@ -1,0 +1,12 @@
+# dependencies and build output
+node_modules/
+target/
+dist/
+
+# local settings and secrets
+.env
+*.log
+
+# editors
+.idea/
+.vscode/
