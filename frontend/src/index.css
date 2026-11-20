@@ -1,68 +1,56 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --blue: #1f4e79;
+  --bg: #f3f6fa;
+  --text: #1c2733;
+  --muted: #5d6b7a;
+  font-family: system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; }
+h1 { margin: 0 0 4px; font-size: 1.7rem; }
+h2 { margin: 0 0 12px; font-size: 1.1rem; }
+a { color: var(--blue); }
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+.center { text-align: center; margin-top: 4rem; }
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+.topbar { display: flex; align-items: center; gap: 24px; padding: 0 24px; height: 60px; background: var(--blue); color: #fff; }
+.brand { font-weight: 700; font-size: 1.2rem; }
+.topbar nav { display: flex; gap: 6px; flex: 1; }
+.topbar nav a { color: #dbe8f5; text-decoration: none; padding: 8px 12px; border-radius: 6px; }
+.topbar nav a.active, .topbar nav a:hover { background: rgba(255, 255, 255, 0.18); color: #fff; }
+.who { display: flex; align-items: center; gap: 12px; }
+.badge { padding: 2px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; background: #fff; color: var(--blue); }
+.badge.admin { background: #ffe9b5; color: #6b4a00; }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+.page { max-width: 1000px; margin: 28px auto; padding: 0 20px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0; }
+.card { background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 1px 4px rgba(20, 40, 70, 0.1); margin-bottom: 16px; }
+.card ul { margin: 0; padding-left: 18px; line-height: 1.7; }
+.center-card { max-width: 480px; margin: 60px auto; text-align: center; }
+dl { margin: 0; display: grid; grid-template-columns: 120px 1fr; row-gap: 8px; }
+dt { color: var(--muted); }
+dd { margin: 0; }
+.stat { display: flex; flex-direction: column; align-items: center; gap: 4px; margin: 0; }
+.stat-number { font-size: 2.4rem; font-weight: 700; color: var(--blue); }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #e3e9f0; }
+th { color: var(--muted); font-weight: 600; }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+.auth-card { max-width: 420px; margin: 56px auto; background: #fff; border-radius: 12px; padding: 32px; box-shadow: 0 2px 10px rgba(20, 40, 70, 0.12); }
+form { display: flex; flex-direction: column; gap: 6px; margin: 16px 0; }
+label { font-weight: 600; font-size: 0.9rem; margin-top: 6px; }
+input { padding: 10px 12px; border: 1px solid #b8c4d1; border-radius: 6px; font-size: 1rem; }
+input:focus { outline: 2px solid #8fb5dc; border-color: var(--blue); }
+button { margin-top: 12px; padding: 11px 14px; border: 0; border-radius: 6px; background: var(--blue); color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; }
+button:hover:not(:disabled) { background: #173d5e; }
+button:disabled { opacity: 0.6; cursor: default; }
+button.secondary { margin: 0; padding: 7px 12px; background: transparent; border: 1px solid #fff; font-size: 0.9rem; }
+button.secondary:hover { background: rgba(255, 255, 255, 0.2) !important; }
+.alert { padding: 10px 12px; border-radius: 6px; margin: 12px 0; font-size: 0.92rem; }
+.alert.error { background: #fde8e8; color: #8a1c1c; }
+.alert.success { background: #e3f6e8; color: #1d6a35; }
+.field-error { color: #b42222; font-size: 0.85rem; }
