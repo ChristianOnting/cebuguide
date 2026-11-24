@@ -36,7 +36,20 @@ export function AuthProvider({ children }) {
     setUser(null)
   }, [])
 
-  return <AuthContext.Provider value={{ user, loading, login, register, logout }}>{children}</AuthContext.Provider>
+  // Used after the profile is edited so the menu and pages show the new details.
+  const updateUser = useCallback((updated) => setUser(updated), [])
+
+  // Clears the local session only (the server has already ended it, for example after a password change).
+  const clearSession = useCallback(() => {
+    sessionStorage.removeItem(TOKEN_KEY)
+    setUser(null)
+  }, [])
+
+  return (
+    <AuthContext.Provider value={{ user, loading, login, register, logout, updateUser, clearSession }}>
+      {children}
+    </AuthContext.Provider>
+  )
 }
 
 export function useAuth() {

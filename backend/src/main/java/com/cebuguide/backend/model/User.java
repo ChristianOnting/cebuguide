@@ -28,6 +28,10 @@ public class User {
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
 
+    /** When the password was last changed or reset. Login tokens issued before this moment are rejected. */
+    @Column(name = "password_changed_at")
+    private Instant passwordChangedAt;
+
     protected User() {
     }
 
@@ -49,4 +53,10 @@ public class User {
     public String getPasswordHash() { return passwordHash; }
     public Role getRole() { return role; }
     public Instant getCreatedAt() { return createdAt; }
+    public Instant getPasswordChangedAt() { return passwordChangedAt; }
+
+    public void setName(String name) { this.name = name; }
+    public void setEmail(String email) { this.email = email; }
+    public void setPasswordHash(String passwordHash) { this.passwordHash = passwordHash; }
+    public void setPasswordChangedAt(Instant passwordChangedAt) { this.passwordChangedAt = passwordChangedAt; }
 }

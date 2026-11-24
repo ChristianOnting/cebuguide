@@ -7,11 +7,13 @@ const MENUS = {
   TOURIST: [
     { to: '/tourist/dashboard', label: 'Dashboard' },
     { to: '/profile', label: 'My Profile' },
+    { to: '/change-password', label: 'Change Password' },
   ],
   ADMIN: [
     { to: '/admin/dashboard', label: 'Dashboard' },
     { to: '/admin/users', label: 'Users' },
     { to: '/profile', label: 'My Profile' },
+    { to: '/change-password', label: 'Change Password' },
   ],
 }
 

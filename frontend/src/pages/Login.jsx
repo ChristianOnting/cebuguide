@@ -33,6 +33,8 @@ export default function Login() {
       <h1>CebuGuide</h1>
       <p className="muted">Log in to your account</p>
       {location.state?.registered && <div className="alert success">Account created. You can log in now.</div>}
+      {location.state?.passwordChanged && <div className="alert success">Password changed. Log in with your new password.</div>}
+      {location.state?.passwordReset && <div className="alert success">Your password has been reset. Log in with your new password.</div>}
       {params.get('expired') && <div className="alert error">Your session has ended. Please log in again.</div>}
       {error && <div className="alert error">{error}</div>}
       <form onSubmit={handleSubmit}>
@@ -44,6 +46,9 @@ export default function Login() {
           {busy ? 'Logging in...' : 'Log in'}
         </button>
       </form>
+      <p className="muted">
+        <Link to="/forgot-password">Forgot password?</Link>
+      </p>
       <p className="muted">
         No account yet? <Link to="/register">Register</Link>
       </p>
