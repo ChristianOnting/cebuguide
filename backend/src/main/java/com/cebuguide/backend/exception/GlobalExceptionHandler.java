@@ -23,6 +23,12 @@ public class GlobalExceptionHandler {
                 .body(new ApiError(400, "Please correct the highlighted fields.", fields));
     }
 
+    @ExceptionHandler(FieldValidationException.class)
+    public ResponseEntity<ApiError> handleFieldValidation(FieldValidationException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new ApiError(400, ex.getMessage(), Map.of(ex.getField(), ex.getMessage())));
+    }
+
     @ExceptionHandler(DuplicateEmailException.class)
     public ResponseEntity<ApiError> handleDuplicate(DuplicateEmailException ex) {
         return ResponseEntity.status(HttpStatus.CONFLICT)
