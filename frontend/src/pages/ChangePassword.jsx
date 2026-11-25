@@ -34,8 +34,9 @@ export default function ChangePassword() {
     try {
       await api.post('/profile/change-password', form)
       // The server ended this session; log in again with the new password.
+      sessionStorage.setItem('cg_flash', 'passwordChanged')
       clearSession()
-      navigate('/login', { replace: true, state: { passwordChanged: true } })
+      navigate('/login', { replace: true })
     } catch (err) {
       setErrors(fieldErrors(err))
       setError(errorMessage(err))
