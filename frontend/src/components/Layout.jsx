@@ -11,6 +11,8 @@ const MENUS = {
   ],
   ADMIN: [
     { to: '/admin/dashboard', label: 'Dashboard' },
+    { to: '/admin/spots', label: 'Spots' },
+    { to: '/admin/categories', label: 'Categories' },
     { to: '/admin/users', label: 'Users' },
     { to: '/profile', label: 'My Profile' },
     { to: '/change-password', label: 'Change Password' },
