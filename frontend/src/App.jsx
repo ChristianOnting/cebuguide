@@ -10,6 +10,9 @@ import ResetPassword from './pages/ResetPassword.jsx'
 import TouristDashboard from './pages/TouristDashboard.jsx'
 import AdminDashboard from './pages/AdminDashboard.jsx'
 import AdminUsers from './pages/AdminUsers.jsx'
+import AdminSpots from './pages/AdminSpots.jsx'
+import SpotForm from './pages/SpotForm.jsx'
+import AdminCategories from './pages/AdminCategories.jsx'
 import Profile from './pages/Profile.jsx'
 import ChangePassword from './pages/ChangePassword.jsx'
 import Unauthorized from './pages/Unauthorized.jsx'
@@ -50,6 +53,10 @@ export default function App() {
           <Route element={<ProtectedRoute roles={['ADMIN']} />}>
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/users" element={<AdminUsers />} />
+            <Route path="/admin/spots" element={<AdminSpots />} />
+            <Route path="/admin/spots/new" element={<SpotForm />} />
+            <Route path="/admin/spots/:id/edit" element={<SpotForm />} />
+            <Route path="/admin/categories" element={<AdminCategories />} />
           </Route>
         </Route>
       </Route>
